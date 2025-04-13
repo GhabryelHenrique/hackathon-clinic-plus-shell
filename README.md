@@ -1,59 +1,62 @@
-# HostApp
+# 🧩 Hackathon Clinic Plus - Shell (Host Application)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+Este projeto é a aplicação principal do Hackathon **Clinic Plus**, que utiliza **Angular 19** com **Module Federation nativa** para integrar múltiplos Micro Frontends (MFEs).
 
-## Development server
+## 📦 Tecnologias Utilizadas
 
-To start a local development server, run:
+- Angular 19
+- Native Module Federation com `@angular/core/federation`
+- Esbuild (bundler agnóstico)
+- Standalone Components
+- Lazy Loading via Module Federation
 
-```bash
-ng serve
+## 🏗️ Estrutura
+
+Este projeto atua como **Shell**, ou seja, o container principal que carrega outros MFEs como **módulos remotos**, de forma desacoplada.
+
+## 📁 Organização
+
+```
+hackathon-clinic-plus-shell/
+├── src/
+│   ├── app/
+│   │   └── app.routes.ts
+│   └── main.ts
+├── federation.config.ts
+├── angular.json
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Como Rodar
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 1. Instalar dependências
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 2. Rodar o Shell (porta 4200)
 
 ```bash
-ng generate --help
+ng serve --port 4200
 ```
 
-## Building
+Acesse [http://localhost:4200](http://localhost:4200)
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🔗 Módulos Remotos Conectados
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- `hackathon-clinic-plus-mfe` (rodando em `http://localhost:4201`)
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🛠️ Como adicionar um novo MFE
 
-```bash
-ng test
-```
+1. Declare o remote em `federation.config.ts`
+2. Adicione rota dinâmica em `app.routes.ts` usando `loadComponent` ou `loadChildren`
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 💬 Comunidade
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Dúvidas? Poste no canal do Hackathon ou abra uma Issue.
